@@ -6,7 +6,7 @@ export default class EmployeeList extends Component {
     state = { employees: [] }
 
     componentDidMount () {
-        fetch("http://localhost:5002/employees")
+        fetch(`${Settings.remoteURL}/employees`)
         .then(e => e.json())
         .then(employees => this.setState({ employees: employees }))
     }

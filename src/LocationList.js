@@ -6,7 +6,7 @@ export default class LocationList extends Component {
     state = { locations: [] }
 
     componentDidMount () {
-        fetch("http://localhost:5002/locations")
+        fetch(`${Settings.remoteURL}/locations`)
         .then(e => e.json())
         .then(locations => this.setState({ locations: locations }))
     }

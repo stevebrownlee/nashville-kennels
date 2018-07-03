@@ -1,29 +1,28 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import Settings from "../Settings"
 import "./NavBar.css"
 
 
 export default class NavBar extends Component {
     state = { searchTerms: "" }
 
-
-
     search = (e) => {
         if (e.charCode === 13) {
             const terms = document.querySelector("#searchTerms").value
             const foundItems = {}
 
-            fetch(`http://localhost:5002/employees?name_like=${encodeURI(terms)}`)
+            fetch(`${Settings.remoteURL}/employees?name_like=${encodeURI(terms)}`)
                 .then(r => r.json())
                 .then(employees => {
                     foundItems.employees = employees
-                    return fetch(`http://localhost:5002/locations?name_like=${encodeURI(terms)}`)
+                    return fetch(`${Settings.remoteURL}/locations?name_like=${encodeURI(terms)}`)
                 })
                 .then(r => r.json())
                 .then(locations => {
                     foundItems.locations = locations
-                    return fetch(`http://localhost:5002/animals?name_like=${encodeURI(terms)}`)
+                    return fetch(`${Settings.remoteURL}/animals?name_like=${encodeURI(terms)}`)
                 })
                 .then(r => r.json())
                 .then(animals => {
