@@ -9,7 +9,6 @@ export default props => {
                 <h5 className="card-title">
                     {props.animal.name}
                 </h5>
-                <p className="card-text">{props.animal.breed}</p>
                 {
                     <Link className="card-link"
                         to={{
@@ -23,38 +22,3 @@ export default props => {
         </div>
     )
 }
-
-
-// export default props => {
-//     let animal = {}
-//     let showLink = false
-
-//     if (props.hasOwnProperty("animal")) {
-//         animal = props.animal
-//         showLink = true
-//     } else {
-//         animal = props.location.state.animal
-//     }
-
-//     return (
-//         <div className="card" style={{width: `18rem`}}>
-//             <div className="card-body">
-//                 <h5 className="card-title">
-//                     {animal.name}
-//                 </h5>
-//                 <p className="card-text">{animal.breed}</p>
-//                 {
-//                     showLink
-//                         ? <Link className="card-link"
-//                             to={{
-//                                 pathname: `/animals/${animal.id}`,
-//                                 state: { animal: animal }
-//                             }}>
-//                             Details
-//                         </Link>
-//                         : <div></div>
-//                 }
-//             </div>
-//         </div>
-//     )
-// }
