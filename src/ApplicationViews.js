@@ -24,7 +24,7 @@ export default class ApplicationViews extends Component {
 
     render() {
         return (
-            <react.Context>
+            <React.Context>
                 <React.Fragment>
                     <AuthRoute path="/" locations={[{id:1}]} Destination={ResourceList("locations")} />
                     <DetailAuthRoute path="/locations/:locationId" resource="locations" />
@@ -38,7 +38,7 @@ export default class ApplicationViews extends Component {
                     <Route path="/login" component={Login} />
                     <AuthRoute path="/search" Destination={SearchResults} />
                 </React.Fragment>
-            </react.Context>
+            </React.Context>
         )
     }
 }
